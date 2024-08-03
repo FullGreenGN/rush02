@@ -1,38 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_putstr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/03 14:43:25 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/03 15:57:55 by fullgreen        ###   ########.fr       */
+/*   Created: 2024/08/03 15:55:01 by fullgreen         #+#    #+#             */
+/*   Updated: 2024/08/03 15:58:51 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft.h"
+#include "../../includes/ft.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
 
-
-int	main(int ac, char **av)
+void	ft_putstr(char *str)
 {
-	t_list *tab;
-	int *first;
-	int addr_first;
+	int i;
 
-	addr_first = 1;
-	first = &addr_first;
-	if (ac == 2)
+	i = 0;
+	while (str[i])
 	{
-		if (ft_atoi(av[1]) < 0)
-		{
-			write(1, "Error\n", 6);
-			return (0);
-		}
-		tab = process("dict.txt");
-		ft_print(ft_atoi(av[1]), tab, first);
+		write(1, &str[i], 1);
+		i++;
 	}
-	return (0);
 }

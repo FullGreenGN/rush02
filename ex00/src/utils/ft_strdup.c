@@ -1,38 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/08/03 14:43:25 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/03 15:57:55 by fullgreen        ###   ########.fr       */
+/*   Created: 2024/08/03 15:55:19 by fullgreen         #+#    #+#             */
+/*   Updated: 2024/08/03 15:58:56 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ft.h"
+#include "../../includes/ft.h"
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
 
-
-int	main(int ac, char **av)
+char	*ft_strdup(char *src)
 {
-	t_list *tab;
-	int *first;
-	int addr_first;
+	int		i;
+	int		len;
+	char		*dst;
 
-	addr_first = 1;
-	first = &addr_first;
-	if (ac == 2)
+	len = 0;
+	while (src[len] != '\0')
+		len++;
+	if (!(dst = (char *)malloc(sizeof(char) * (len + 1))))
+		return (0);
+	i = 0;
+	while (i < len)
 	{
-		if (ft_atoi(av[1]) < 0)
-		{
-			write(1, "Error\n", 6);
-			return (0);
-		}
-		tab = process("dict.txt");
-		ft_print(ft_atoi(av[1]), tab, first);
+		dst[i] = src[i];
+		i++;
 	}
-	return (0);
+	dst[i] = '\0';
+	return (dst);
 }
