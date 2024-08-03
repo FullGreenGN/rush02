@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 14:43:25 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/03 16:09:33 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/03 16:18:34 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,8 +61,6 @@ int	main(int ac, char **av)
 			write(1, "Error\n", 6);
 			return (0);
 		}
-		tab = process("dict.txt");
-		ft_print(ft_atoi(av[1]), tab, first);
 	}
 	return (0);
 }
