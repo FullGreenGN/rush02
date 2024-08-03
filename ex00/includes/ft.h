@@ -12,6 +12,8 @@ char	*ft_strdup(char *src);
 void	ft_putstr(char *str);
 char	*ft_getnb(int fd);
 char	*ft_getval(int fd, char *c);
+int	getmult(int n);
+int	getdec(int n);
 t_list	*process(char *file);
 
 #endif
