@@ -1,20 +1,47 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_readfile.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2024/08/04 14:08:44 by fullgreen         #+#    #+#             */
+/*   Updated: 2024/08/04 14:08:44 by fullgreen        ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
 #include "../../includes/ft.h"
 
-void ft_open() {
-    int fd = open("numbers.dict", O_RDONLY);
-    if (fd == -1) {
-        ft_putstr("Erreur lors de l'ouverture du fichier.\n");
-        return;
-    }
+t_list	*process(char *file)
+{
+	int	i;
+	int	fd;
+	char	c[1];
+	t_list	*tab;
+	char *tmp;
 
-    char buffer[1024];
-    ssize_t bytesRead;
-
-    while ((bytesRead = read(fd, buffer, sizeof(buffer))) > 0) {
-        write(1, buffer, bytesRead);
-    }
-
-    close(fd);
+	fd = open(file, O_RDONLY);
+	if (fd == -1 || !(tab = malloc(sizeof(t_list) * 33)))
+		exit(1);
+	i = 0;
+	while (i < 32)
+	{
+		tab[i].nb = ft_atoi(ft_getnb(fd));
+		read(fd, c, 1);
+		while (c[0] == ' ')
+			read(fd, c, 1);
+		if (c[0] == ':')
+			read(fd, c, 1);
+		while (c[0] == ' ')
+			read(fd, c, 1);
+		tmp = ft_getval(fd, c);
+		tab[i].val = ft_strdup(tmp);
+		free(tmp);
+		i++;
+	}
+	close(fd);
+	return (tab);
 }

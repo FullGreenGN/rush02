@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 13:50:05 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/04 13:50:33 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/04 14:04:01 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,35 +51,4 @@ char	*ft_getval(int fd, char *c)
 		i++;
 	}
 	return (str);
-}
-
-t_list	*process(char *file)
-{
-	int	i;
-	int	fd;
-	char	c[1];
-	t_list	*tab;
-	char *tmp;
-
-	fd = open(file, O_RDONLY);
-	if (fd == -1 || !(tab = malloc(sizeof(t_list) * 33)))
-		exit(1);
-	i = 0;
-	while (i < 32)
-	{
-		tab[i].nb = ft_atoi(ft_getnb(fd));
-		read(fd, c, 1);
-		while (c[0] == ' ')
-			read(fd, c, 1);
-		if (c[0] == ':')
-			read(fd, c, 1);
-		while (c[0] == ' ')
-			read(fd, c, 1);
-		tmp = ft_getval(fd, c);
-		tab[i].val = ft_strdup(tmp);
-		free(tmp);
-		i++;
-	}
-	close(fd);
-	return (tab);
 }
