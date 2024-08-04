@@ -6,7 +6,7 @@
 /*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 14:43:25 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/04 16:18:53 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/04 16:25:28 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,20 @@
 #include <stdlib.h>
 #include <unistd.h>
 #include <fcntl.h>
+
+int	is_alpha(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		if (str[i] < '0' || str[i] > '9')
+			return (1);
+		i++;
+	}
+	return (0);
+}
 
 int	main(int ac, char **av)
 {
@@ -25,7 +39,7 @@ int	main(int ac, char **av)
 	first = &addr_first;
 	if (ac == 2)
 	{
-		if (ft_atoi(av[1]) < 0 || av[1] >= 0)
+		if (ft_atoi(av[1]) < 0 || is_alpha(av[1]))
 		{
 			write(1, "Error\n", 6);
 			return (0);
