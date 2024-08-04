@@ -4,10 +4,9 @@
 
 t_list    ft_open() 
 {
-    int fd;
+    int    fd;
     char    buffer[1024];
     ssize_t bytesRead;
-
 
     fd = open("numbers.dict", O_RDONLY);
     if (fd == -1)
