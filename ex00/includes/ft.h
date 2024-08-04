@@ -7,7 +7,6 @@ typedef struct	s_list
 	char	*val;
 }		t_list;
 void	ft_print(int n, t_list *tab, int *first);
-int	ft_atoi(const char *str);
 char	*ft_strdup(char *src);
 void	ft_putstr(char *str);
 char	*ft_getnb(int fd);
