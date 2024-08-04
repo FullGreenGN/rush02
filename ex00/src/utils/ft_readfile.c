@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_readfile.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sapupier <sapupier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:08:44 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/04 14:30:50 by sapupier         ###   ########.fr       */
+/*   Updated: 2024/08/04 14:32:07 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,7 @@ t_list	*process(char *file)
 	i = 0;
 	while (i < 41)
 	{
-		coucou(i, tmp, fd, c, tab)
+		coucou(i, tmp, fd, c, tab);
 	}
 	close(fd);
 	return (tab);
