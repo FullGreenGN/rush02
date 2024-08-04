@@ -18,8 +18,3 @@ void ft_open() {
 
     close(fd);
 }
-
-int main() {
-    ft_open();
-    return 0;
-}
