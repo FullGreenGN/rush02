@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: sapupier <sapupier@student.42.fr>          +#+  +:+       +#+        */
+/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 14:43:25 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/04 14:49:37 by sapupier         ###   ########.fr       */
+/*   Updated: 2024/08/04 16:18:53 by fullgreen        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,7 +25,7 @@ int	main(int ac, char **av)
 	first = &addr_first;
 	if (ac == 2)
 	{
-		if (ft_atoi(av[1]) < 0)
+		if (ft_atoi(av[1]) < 0 || av[1] >= 0)
 		{
 			write(1, "Error\n", 6);
 			return (0);
