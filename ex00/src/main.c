@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: sapupier <sapupier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/03 14:43:25 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/04 14:03:44 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/04 14:49:37 by sapupier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 
 int	main(int ac, char **av)
 {
-	t_list *tab;
-	int *first;
-	int addr_first;
+	t_list	*tab;
+	int		*first;
+	int		addr_first;
 
 	addr_first = 1;
 	first = &addr_first;

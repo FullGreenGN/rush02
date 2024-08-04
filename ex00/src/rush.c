@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   rush.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: sapupier <sapupier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 13:50:05 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/04 14:04:01 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/04 14:48:52 by sapupier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,11 +17,12 @@
 
 char	*ft_getnb(int fd)
 {
-	int	i;
+	int		i;
 	char	c[1];
 	char	*str;
 
-	if (!(str = malloc(sizeof(char) * 128)))
+	str = malloc(sizeof(char) * 128);
+	if (!(str))
 		exit(1);
 	i = 0;
 	read(fd, c, 1);
@@ -38,10 +39,11 @@ char	*ft_getnb(int fd)
 
 char	*ft_getval(int fd, char *c)
 {
-	int	i;
+	int		i;
 	char	*str;
 
-	if (!(str = malloc(sizeof(char) * 128)))
+	str = malloc(sizeof(char) * 128);
+	if (!(str))
 		exit(1);
 	i = 0;
 	while (c[0] != '\n')

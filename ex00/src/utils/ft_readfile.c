@@ -6,7 +6,7 @@
 /*   By: sapupier <sapupier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:08:44 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/04 14:34:46 by sapupier         ###   ########.fr       */
+/*   Updated: 2024/08/04 14:43:20 by sapupier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,22 +18,21 @@
 t_list	*process(char *file)
 {
 	long	i;
-	int	fd;
+	int		fd;
 	char	c[1];
 	t_list	*tab;
-	char *tmp;
+	char	*tmp;
 
 	fd = open(file, O_RDONLY);
-	if (fd == -1 || !(tab = malloc(sizeof(t_list) * 43)))
+	tab = malloc(sizeof(t_list) * 43);
+	if (fd == -1 || !(tab))
 		exit(1);
 	i = 0;
 	while (i < 41)
 	{
 		tab[i].nb = ft_atoi(ft_getnb(fd));
 		read(fd, c, 1);
-		while (c[0] == ' ')
-			read(fd, c, 1);
-		if (c[0] == ':')
+		while (c[0] == ' ' || c[0] == ':')
 			read(fd, c, 1);
 		tmp = ft_getval(fd, c);
 		tab[i].val = ft_strdup(tmp);
