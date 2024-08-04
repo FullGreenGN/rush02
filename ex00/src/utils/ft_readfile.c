@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_readfile.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: fullgreen <fullgreen@student.42.fr>        +#+  +:+       +#+        */
+/*   By: sapupier <sapupier@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/08/04 14:08:44 by fullgreen         #+#    #+#             */
-/*   Updated: 2024/08/04 14:32:07 by fullgreen        ###   ########.fr       */
+/*   Updated: 2024/08/04 14:34:46 by sapupier         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,24 +29,17 @@ t_list	*process(char *file)
 	i = 0;
 	while (i < 41)
 	{
-		coucou(i, tmp, fd, c, tab);
+		tab[i].nb = ft_atoi(ft_getnb(fd));
+		read(fd, c, 1);
+		while (c[0] == ' ')
+			read(fd, c, 1);
+		if (c[0] == ':')
+			read(fd, c, 1);
+		tmp = ft_getval(fd, c);
+		tab[i].val = ft_strdup(tmp);
+		free(tmp);
+		i++;
 	}
 	close(fd);
 	return (tab);
-}
-
-void coucou(long i, char *tmp, int fd, char	c[1], t_list	*tab)
-{
-	tab[i].nb = ft_atoi(ft_getnb(fd));
-	read(fd, c, 1);
-	while (c[0] == ' ')
-		read(fd, c, 1);
-	if (c[0] == ':')
-		read(fd, c, 1);
-	while (c[0] == ' ')
-		read(fd, c, 1);
-	tmp = ft_getval(fd, c);
-	tab[i].val = ft_strdup(tmp);
-	free(tmp);
-	i++;
 }
